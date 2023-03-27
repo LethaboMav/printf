@@ -8,11 +8,10 @@
  */
 int print_c(va_list l)
 {
-	char chr;
+	unsigned char chr;
 
-	chr = (char)va_arg(l, int);
-	write(1, &chr, strlen(&chr));
-	return (1);
+	chr = (unsigned char)va_arg(l, int);
+	return (write(1, &chr, 1));
 }
 
 /**
