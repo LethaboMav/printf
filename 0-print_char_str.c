@@ -34,14 +34,12 @@ int _printf(const char *format, ...)
 				count += print_p();
 				continue;
 			}
+			else
+				i--;
 		}
-		else
-		{
-			write(1, &format[i], 1);
-			count++;
-		}
+        	write(1, &format[i], 1);
+       		count++;
 	}
 	va_end(args);
-	printf("count is %d\n", count);
 	return (count);
 }
