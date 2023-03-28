@@ -22,30 +22,21 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if (format[i] == 'c')
-			{
 				count += print_c(args);
-				continue;
-			}
 			else if (format[i] == 's')
-			{
 				count += print_s(args);
-				continue;
-			}
 			else if (format[i] == '%')
+				count += print_p();
+			else if (format[i] == 'd' || format[i] == 'i')
+				count += print_i_d(args);
+			else
 			{
 				count += print_p();
-				continue;
+				count += write(1, &format[i], 1);
 			}
-			else if (format[i] == 'd' || format[i] == 'i')
-			{
-				count += print_i_d(args);
-				continue;
-			}
-			else
-				i--;
 		}
-		write(1, &format[i], 1);
-		count++;
+		else
+			count += write(1, &format[i], 1);
 	}
 	va_end(args);
 	return (count);
