@@ -11,7 +11,8 @@ int print_c(va_list l)
 	unsigned char chr;
 
 	chr = (unsigned char)va_arg(l, int);
-	return (write(1, &chr, 1));
+	write(1, &chr, 1);
+	return (1);
 }
 
 /**
@@ -22,10 +23,10 @@ int print_c(va_list l)
  */
 int print_s(va_list l)
 {
-	char *str;
+	const char *str;
 	int count = 0;
 
-	str = (char *)va_arg(l, char *);
+	str = (const char *)va_arg(l, const char *);
 	if (str == NULL)
 	{
 		write(1, "(null)", strlen("(null)"));
@@ -46,5 +47,6 @@ int print_s(va_list l)
  */
 int print_p(void)
 {
-	return (write(1, "%", strlen("%")));
+	write(1, "%", strlen("%"));
+	return (1);
 }
