@@ -10,5 +10,6 @@ int _printf(const char *format, ...);
 int print_c(va_list l);
 int print_s(va_list l);
 int print_p(void);
+int print_i_d(va_list y);
 
 #endif /* MAIN_H */
