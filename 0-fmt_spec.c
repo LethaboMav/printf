@@ -22,10 +22,10 @@ int print_c(va_list l)
  */
 int print_s(va_list l)
 {
-	const char *str;
+	char *str;
 	int count = 0;
 
-	str = (const char *)va_arg(l, char *);
+	str = (char *)va_arg(l, char *);
 	if (str == NULL)
 	{
 		write(1, "(null)", strlen("(null)"));
