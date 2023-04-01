@@ -29,6 +29,8 @@ int _printf(const char *format, ...)
 				count += print_p();
 			else if (format[i] == 'd' || format[i] == 'i')
 				count += print_i_d(args);
+			else if (format[i] == 'b')
+				count += print_b(args);
 			else
 			{
 				count += print_p();
