@@ -50,3 +50,17 @@ int print_p(void)
 	write(1, "%", strlen("%"));
 	return (1);
 }
+
+/**
+ * print_b - prints binary numbers
+ * @l: the number to print.
+ *
+ * Return: the number of binary digits printed.
+ */
+int print_b(va_list l)
+{
+	char binary[65];
+
+	convertb(va_arg(l, unsigned int), binary);
+	return (write(1, binary, strlen(binary)));
+}
