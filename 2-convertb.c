@@ -11,6 +11,11 @@ void convertb(unsigned int num, char *binary)
 {
 	int i = 0;
 
+	if (num == 0)
+	{
+		binary[i] = 0 + '0';
+		return;
+	}
 	while (num != 0)
 	{
 		binary[i] = (num % 2) + '0';
