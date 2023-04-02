@@ -59,8 +59,13 @@ int print_p(void)
  */
 int print_b(va_list l)
 {
-	char binary[65];
+	char *binary = malloc(sizeof(char) * 65);
+	int count = 0;
 
+	if (binary == NULL)
+		return (0);
 	convertb(va_arg(l, unsigned int), binary);
-	return (write(1, binary, strlen(binary)));
+	count += write(1, binary, strlen(binary));
+	free(binary);
+	return (count);
 }
